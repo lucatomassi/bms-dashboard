@@ -10,7 +10,7 @@ export default function Home() {
 		<div className={styles.container}>
 			<Head>
 				<title>XGUARD BMS</title>
-				<meta name="description" content="Created for XGUARD" />
+				<meta name="description" content="Capstone Project" />
 				<link rel="icon" href="/shield-blanc.ico" />
 			</Head>
 			<div className={styles.container}>
