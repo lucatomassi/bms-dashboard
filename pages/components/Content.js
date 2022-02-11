@@ -3,6 +3,8 @@ import styles from "../../styles/Home.module.css";
 import { Line } from "react-chartjs-2";
 import { Doughnut } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 
 //data for bar chart
@@ -59,11 +61,22 @@ const data = {
 
 //doughnut chart data set
 
-const data1 = {
+const dataCellVoltage = {
 	labels: ["Cell1", "Cell2", "Cell3", "Cell4"],
 	datasets: [
 		{
 			data: [4.10, 3.95, 4.12, 4.11],
+			backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
+			hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
+		},
+	],
+};
+
+const dataCellCurrent = {
+	labels: ["Cell1", "Cell2", "Cell3", "Cell4"],
+	datasets: [
+		{
+			data: [5, 4.95, 4.5, 4.98],
 			backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
 			hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
 		},
@@ -96,13 +109,13 @@ const data2 = {
   };
 
 
+
 function Content() {
 	return (
 		<div className={styles.contentcontainer}>
 			<div className={styles.contentwrapper}>
 				<div className={styles.tabs}>
 					<div className={styles.categories}>
-
 						<h3>Batteries Connected</h3>
 					</div>
 				</div>
@@ -116,27 +129,31 @@ function Content() {
 						<h3>Reports</h3>
 					</div>
 				</div>
-				
+		
 			</div>
+
+		
 			{/* chart started  */}
-			<div className={styles.charts}>
-				<div className={styles.bar}>
+
+			<div className={styles.bar2}>
 					<h2>Realtime Temperature</h2>
 					<Line data={data0} width={400} height={400} />
 				</div>
 			
-				
+			<div className={styles.charts}>
 				<div className={styles.bar}>
 					<h2>Current/Voltage Drawn</h2>
 					<Bar data={data2} width={400} height={400} />
 				</div>
+				
 
 				<div className={styles.circle}>
 					<h2>Cell Voltage</h2>
-					<Doughnut data={data1} width={400} height={400} />
+					<Doughnut data={dataCellVoltage} width={400} height={400} />
 				</div>
+		
 
-				<div className={styles.bar}>
+				<div className={styles.bar2}>
 					<h2>Temperature History</h2>
 					<Line data={data} width={400} height={400} />
 				</div>

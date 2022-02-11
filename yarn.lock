@@ -136,6 +136,94 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.14.0.tgz#c67fc20a4d891447ca1a855d7d70fa79a3533001"
   integrity sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
 
+"@syncfusion/ej2-base@~19.4.48":
+  version "19.4.48"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-base/-/ej2-base-19.4.48.tgz#4ee2e1535274e1482c56e0caea8063811f5d7fc4"
+  integrity sha512-DQ9YXjJoSIM60rTriUJKTkMAACOsW8PTw5hPgujFSPKmLJW1h0jEDFLNvSqyyi0IaDAlStcu+dWrp+mMtaDD9Q==
+  dependencies:
+    "@syncfusion/ej2-icons" "~19.4.48"
+
+"@syncfusion/ej2-buttons@~19.4.48", "@syncfusion/ej2-buttons@~19.4.50":
+  version "19.4.50"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-buttons/-/ej2-buttons-19.4.50.tgz#d50821a53458bec09b4d036638593a3405d67271"
+  integrity sha512-jHnKaU0yAf70Off+K7/2D7WyT+Nva8yYqENDnSbrMxEzzwLQaQrgdex+nSjnupGzW5+WUCXtfdDHrp2cCYGLtQ==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.4.48"
+
+"@syncfusion/ej2-calendars@19.4.50":
+  version "19.4.50"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-calendars/-/ej2-calendars-19.4.50.tgz#4d3929c400cf2fa59890cfa90c94e928bc4eb7ae"
+  integrity sha512-4HWB1joHCOlwPWubj0Gm1bxkNkr/9KdJzIuFEl1UDA6/FQLIGUrxqoVHyo6FBkd/+sGr1m25x0ZYhxrcPS9MFA==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.4.48"
+    "@syncfusion/ej2-buttons" "~19.4.50"
+    "@syncfusion/ej2-inputs" "~19.4.48"
+    "@syncfusion/ej2-lists" "~19.4.48"
+    "@syncfusion/ej2-popups" "~19.4.50"
+
+"@syncfusion/ej2-data@~19.4.48":
+  version "19.4.50"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-data/-/ej2-data-19.4.50.tgz#d4ea328778a5246669ff08ba0256231a708d5464"
+  integrity sha512-Dim4tUWBayT0yWT02X19Pk7yLW1MENyhnren2Fjjkkju2kEgJdLFGga4LtNHcvdLUyijWupGQLyGoXfcHB6zmw==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.4.48"
+
+"@syncfusion/ej2-icons@~19.4.48":
+  version "19.4.48"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-icons/-/ej2-icons-19.4.48.tgz#66fd5b865b9a71dbf560c9d2a311bbf973930abe"
+  integrity sha512-aUByOjKgIDx/EZlVW002MPvzPRdqfKG3H1oLUceg3zcOKuw8R/RSqk89VZV8xtCoIoBNFP0M+fJTXPiO1lQWqQ==
+
+"@syncfusion/ej2-inputs@~19.4.48":
+  version "19.4.48"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-inputs/-/ej2-inputs-19.4.48.tgz#8345747cee27cdaf74ed1fc88a9fce562666364b"
+  integrity sha512-aXubnHmFHvUMxrMGrT8O+4o8WAhQMEIXhiJcTaMKwe2MLBSJZrsNp9kRb/En7f2QFOJZs/uciy1BCJPyfpuhnQ==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.4.48"
+    "@syncfusion/ej2-buttons" "~19.4.48"
+    "@syncfusion/ej2-popups" "~19.4.48"
+    "@syncfusion/ej2-splitbuttons" "~19.4.48"
+
+"@syncfusion/ej2-lists@~19.4.48":
+  version "19.4.48"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-lists/-/ej2-lists-19.4.48.tgz#3bb93379ce188eb396bcb8691d6f96e09138e038"
+  integrity sha512-hmHn+8BWP9bBKZfyFNDcrseqOcXih2Caaw6KfjoijPj9Zs+DaKvQOo8f3TfuEkWilMVpVkdMoOrc5fhekzKkug==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.4.48"
+    "@syncfusion/ej2-buttons" "~19.4.48"
+    "@syncfusion/ej2-data" "~19.4.48"
+
+"@syncfusion/ej2-popups@~19.4.48", "@syncfusion/ej2-popups@~19.4.50":
+  version "19.4.50"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-popups/-/ej2-popups-19.4.50.tgz#b95148c4b23fd8e5b9e309bbd5be4fca082ce6a4"
+  integrity sha512-ktamqQL1VZ/DYDp+SiD+L0bK1Jc4ldyy9S2kTGEelMgerm8XofIQXDgmjpPf9l/9DE0qcgNUE6p20L0fKIUoGA==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.4.48"
+    "@syncfusion/ej2-buttons" "~19.4.50"
+
+"@syncfusion/ej2-react-base@~19.4.48":
+  version "19.4.48"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-react-base/-/ej2-react-base-19.4.48.tgz#c0353dd29d61e693c9b6b88b79e101c7bcd90f56"
+  integrity sha512-MXYh0wES94r++6YMPgWY/hCwdu5G7niqZ87DZrF4t+EUN+Zw8GZG0R51pzgifjwgpOwg/Yqh2Veqo1LVeBLNWw==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.4.48"
+
+"@syncfusion/ej2-react-calendars@^19.4.50":
+  version "19.4.50"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-react-calendars/-/ej2-react-calendars-19.4.50.tgz#7a550e671a67ccb78ad4acaf8eb627739b1c499b"
+  integrity sha512-fS59PuWokvV7HffUJ4fjtoLINLFENHFhnlLv7QpsXIDAfA/of0+7DYAdjXyTK7qAaQH5n/DIS6dHkAWvyZ2Ibg==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.4.48"
+    "@syncfusion/ej2-calendars" "19.4.50"
+    "@syncfusion/ej2-react-base" "~19.4.48"
+
+"@syncfusion/ej2-splitbuttons@~19.4.48":
+  version "19.4.48"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-splitbuttons/-/ej2-splitbuttons-19.4.48.tgz#4f2ba5679f1f710f635866aaee00b02eea00e803"
+  integrity sha512-q1xI7wXIcoNclkYsln/MsET9BLwPzIYIMu2mVlue/XLGrQqgZHe94AId3+E0muF3i6CHY7FY7J1ux6AM1CFkuQ==
+  dependencies:
+    "@syncfusion/ej2-base" "~19.4.48"
+    "@syncfusion/ej2-popups" "~19.4.48"
+
 "@types/json-schema@^7.0.6":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
@@ -145,6 +233,11 @@
   version "15.12.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.1.tgz#9b60797dee1895383a725f828a869c86c6caa5c2"
   integrity sha512-zyxJM8I1c9q5sRMtVF+zdd13Jt6RU4r4qfhTd7lQubyThvLfx6yYekWSQjGCGV2Tkecgxnlpl/DNlb6Hg+dmEw==
+
+"@wojtekmaj/date-utils@^1.0.2":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@wojtekmaj/date-utils/-/date-utils-1.0.3.tgz#2dcfd92881425c5923e429c2aec86fb3609032a1"
+  integrity sha512-1VPkkTBk07gMR1fjpBtse4G+oJqpmE+0gUFB0dg3VIL7qJmUVaBoD/vlzMm/jNeOPfvlmerl1lpnsZyBUFIRuw==
 
 ajv-keywords@^3.5.2:
   version "3.5.2"
@@ -791,6 +884,13 @@ get-orientation@1.1.2:
   dependencies:
     stream-parser "^0.3.1"
 
+get-user-locale@^1.2.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/get-user-locale/-/get-user-locale-1.4.0.tgz#a2c4b5da46feec9f03c9b07d197b1620490a5370"
+  integrity sha512-gQo03lP1OArHLKlnoglqrGGl7b04u2EP9Xutmp72cMdtrrSD7ZgIsCsUKZynYWLDkVJW33Cj3pliP7uP0UonHQ==
+  dependencies:
+    lodash.once "^4.1.1"
+
 glob-parent@~5.1.0:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
@@ -1086,6 +1186,11 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
+lodash.once@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
+  integrity sha1-DdOXEhPHxW34gJd9UEyI+0cal6w=
+
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
@@ -1118,6 +1223,11 @@ md5.js@^1.3.4:
     hash-base "^3.0.0"
     inherits "^2.0.1"
     safe-buffer "^5.1.2"
+
+merge-class-names@^1.1.1:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/merge-class-names/-/merge-class-names-1.4.2.tgz#78d6d95ab259e7e647252a7988fd25a27d5a8835"
+  integrity sha512-bOl98VzwCGi25Gcn3xKxnR5p/WrhWFQB59MS/aGENcmUc6iSm96yrFDF0XSNurX9qN4LbJm0R9kfvsQ17i8zCw==
 
 merge-stream@^2.0.0:
   version "2.0.0"
@@ -1449,6 +1559,15 @@ prop-types@15.7.2, prop-types@^15.7.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
+prop-types@^15.6.0:
+  version "15.8.1"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
+  integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
+  dependencies:
+    loose-envify "^1.4.0"
+    object-assign "^4.1.1"
+    react-is "^16.13.1"
+
 public-encrypt@^4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/public-encrypt/-/public-encrypt-4.0.3.tgz#4fcc9d77a07e48ba7527e7cbe0de33d0701331e0"
@@ -1516,6 +1635,16 @@ raw-body@2.4.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-calendar@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/react-calendar/-/react-calendar-3.7.0.tgz#951d56e91afb33b1c1e019cb790349fbffcc6894"
+  integrity sha512-zkK95zWLWLC6w3O7p3SHx/FJXEyyD2UMd4jr3CrKD+G73N+G5vEwrXxYQCNivIPoFNBjqoyYYGlkHA+TBDPLCw==
+  dependencies:
+    "@wojtekmaj/date-utils" "^1.0.2"
+    get-user-locale "^1.2.0"
+    merge-class-names "^1.1.1"
+    prop-types "^15.6.0"
+
 react-chartjs-2@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/react-chartjs-2/-/react-chartjs-2-3.0.3.tgz#9cb1981396f9574afebd29aff4e6df71ed615596"
@@ -1532,7 +1661,7 @@ react-dom@17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-is@16.13.1, react-is@^16.8.1:
+react-is@16.13.1, react-is@^16.13.1, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==

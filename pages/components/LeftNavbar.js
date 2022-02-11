@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../styles/Home.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Dropdown } from './Dropdown.js'
 import {
 	faCog,
 	faSignOutAlt,
@@ -12,10 +13,11 @@ function LeftNavbar() {
 		<div className={styles.navcontainer}>
 			<div className={styles.logo}>
 			<div class="navbar-logo">
-                <img src="https://xdronesecurity.com/img/logos/shield-blanc.png" alt="Test" height="120" width="120" />
+                <img src="https://xdronesecurity.com/img/logos/shield-blanc.png" alt="Logo" height="80" width="80" />
             </div>
 				<h2>BMS</h2>
 				<p>Dashboard</p>
+
 				
 			</div>
 			<div className={styles.wrapper}>

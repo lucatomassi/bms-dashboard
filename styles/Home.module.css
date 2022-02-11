@@ -132,12 +132,14 @@ content of dashboard start */
     display: flex;
     flex-wrap: wrap;
     margin-left:200px;
+    position: relative;
 }
 
 .contentwrapper{
     display: flex;
-    padding: 20px;
+    padding: 30px;
     gap:40px;
+    position: relative;
 }
 .tabs{
     display: flex;
@@ -155,23 +157,13 @@ content of dashboard start */
     color: #4f6382;
 }
 
-
-
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    .contentcontainer{
-        margin-left: 70px;
-       
-    }
-    .contentwrapper{
-       display: grid;
-       grid-template-columns: 1fr;
-    }
-    .tabs{
-        width: 350px;
-    }
-
+.bar2{
+    margin-left: 40px;
+    position:left;
+    color: #4f6382;
+    
 }
+
 /* 
 charts css started  */
 
@@ -187,40 +179,7 @@ charts css started  */
 }
 
 .circle{
-    margin-left: 120px;
+    margin-left: 20px;
 }
 
 
-@media only screen and (max-width: 768px) {
-    
-.charts{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin:auto;
-   
-}
-.bar>h2{
-    text-align: center;
-    margin-bottom: 20px;
-}
-.circle>h2{
-    text-align: center;
-    font-size: 22px;
-    margin-bottom: 20px;
-}
-.bar{
-    margin-top: 60px;
-    margin-left: 10px;
-    width:300px;
-    height:300px;
-}
-.circle{
-    margin-top: 60px;
-    margin-left: 10px;
-    width:300px;
-    height:300px;
-}
-
-}
