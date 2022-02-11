@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from 'react';
 import styles from "../../styles/Home.module.css";
 import { Line } from "react-chartjs-2";
 import { Doughnut } from "react-chartjs-2";
@@ -9,10 +10,10 @@ import 'react-calendar/dist/Calendar.css';
 
 //data for bar chart
 const data0 = {
-	labels: ["10:50","10:51","10:52","10:53","10:54","10:55","10:56"],
+	labels: ["10:50","10:51","10:52","10:53","10:54","10:55","10:56","10:57","10:58"],
 	datasets: [{
 		label: 'Temperature',
-		data: [30, 30.2, 30, 30, 24, 30.5, 30.5],
+		data: [30, 30.2, 30, 30, 24, 30.5, 30.5, 30.5, 30.2,],
 		fill: false,
 		borderColor: 'rgb(75, 192, 192)',
 		tension: 0.5
@@ -58,6 +59,18 @@ const data = {
 		},
 	],
 };
+
+
+//calendar function
+function calendar() {
+	const [value, onChange] = useState(new Date());
+  
+	return (
+	  <div>
+		<Calendar onChange={onChange} value={value} />
+	  </div>
+	);
+  }
 
 //doughnut chart data set
 
@@ -132,6 +145,7 @@ function Content() {
 		
 			</div>
 
+		
 		
 			{/* chart started  */}
 

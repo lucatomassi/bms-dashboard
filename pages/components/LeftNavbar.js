@@ -5,6 +5,7 @@ import {
 	faCog,
 	faSignOutAlt,
 	faTachometerAlt,
+	faArrowCircleDown
 } from "@fortawesome/free-solid-svg-icons";
 
 function LeftNavbar() {
@@ -16,11 +17,17 @@ function LeftNavbar() {
             </div>
 				<h2>BMS</h2>
 				<p>Dashboard</p>
-
-				
 			</div>
 			<div className={styles.wrapper}>
 				<ul>
+				<li>
+						<FontAwesomeIcon
+							icon={faArrowCircleDown}
+							style={{ width: "18px", cursor: "pointer" }}
+						/>{" "}
+						<a href="#">Battery 1</a>
+						
+					</li>
 					<li>
 						<FontAwesomeIcon
 							icon={faTachometerAlt}
