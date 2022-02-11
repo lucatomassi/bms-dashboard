@@ -4,6 +4,7 @@ import { Line } from "react-chartjs-2";
 import { Doughnut } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
 
+
 //data for bar chart
 const data0 = {
 	labels: ["10:50","10:51","10:52","10:53","10:54","10:55","10:56"],
@@ -59,12 +60,12 @@ const data = {
 //doughnut chart data set
 
 const data1 = {
-	labels: ["Cell1", "Cell2", "Cell3"],
+	labels: ["Cell1", "Cell2", "Cell3", "Cell4"],
 	datasets: [
 		{
-			data: [4.10, 3.95, 4.12],
-			backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-			hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+			data: [4.10, 3.95, 4.12, 4.11],
+			backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
+			hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
 		},
 	],
 };
@@ -93,6 +94,8 @@ const data2 = {
 ]
 
   };
+
+
 function Content() {
 	return (
 		<div className={styles.contentcontainer}>
