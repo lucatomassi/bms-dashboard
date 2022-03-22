@@ -7,6 +7,49 @@ import { Bar } from "react-chartjs-2";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
+var AWS = require("aws-sdk");
+// const dotenv= require('dotenv');
+// dotenv.config();
+
+
+AWS.config.update({
+  region: process.env.REGION,
+  endpoint: "dynamodb.us-east-1.amazonaws.com",
+  credentials: {
+	accessKeyId: process.env.DB_ACCESS_KEY_ID,
+	secretAccessKey: process.env.DB_SECRET_ACCESS_KEY
+  }
+});
+
+const docClient = new AWS.DynamoDB.DocumentClient()
+
+
+
+const scanTable = async (tableName) => {
+    const params = {
+        TableName: tableName,
+		Key:{}
+    };
+
+    const scanResults = [];
+    var items;
+    do{
+        items =  await docClient.scan(params).promise();
+        items.Items.forEach((item) => scanResults.push(item));
+        params.ExclusiveStartKey  = items.LastEvaluatedKey;
+    }while(typeof items.LastEvaluatedKey !== "undefined");
+    
+    return scanResults;
+
+};
+
+
+
+//timer 
+scanTable("ESP32_DATA").then((data) => {
+    console.log(data[0])
+})
+
 
 //data for bar chart
 const data0 = {
