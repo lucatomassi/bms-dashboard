@@ -23,13 +23,22 @@ AWS.config.update({
 
 const docClient = new AWS.DynamoDB.DocumentClient()
 
+var count = 0;
+
+
+
 
 
 const scanTable = async (tableName) => {
     const params = {
         TableName: tableName,
-		Key:{}
+		// Key:{
+		// 	"esp32_id": time
+		// 	"temperature": temperature
+		// }
+
     };
+
 
     const scanResults = [];
     var items;
@@ -40,28 +49,29 @@ const scanTable = async (tableName) => {
     }while(typeof items.LastEvaluatedKey !== "undefined");
     
     return scanResults;
-
 };
 
+// async function logSingleItemDdbDc(tableName){
+//     try {
+//         var params = {
+//             Key: {
+// 			 "esp32_id": "1/2022-03-22/03:56:58"
+//             }, 
+//             TableName: tableName
+//         };
+//         var result = await docClient.get(params).promise()
+//         console.log(JSON.stringify(result))
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
+// logSingleItemDdbDc("ESP32_DATA")
 
 
-//timer 
-scanTable("ESP32_DATA").then((data) => {
-    console.log(data[0])
-})
 
 
 //data for bar chart
-const data0 = {
-	labels: ["10:50","10:51","10:52","10:53","10:54","10:55","10:56","10:57","10:58"],
-	datasets: [{
-		label: 'Temperature',
-		data: [30, 30.2, 30, 30, 24, 30.5, 30.5, 30.5, 30.2,],
-		fill: false,
-		borderColor: 'rgb(75, 192, 192)',
-		tension: 0.5
-	  }]
-};
+
 	
 const data = {
 	labels: [
@@ -117,56 +127,143 @@ function calendar() {
 
 //doughnut chart data set
 
-const dataCellVoltage = {
-	labels: ["Cell1", "Cell2", "Cell3", "Cell4"],
-	datasets: [
-		{
-			data: [4.10, 3.95, 4.12, 4.11],
-			backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
-			hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
-		},
-	],
-};
 
-const dataCellCurrent = {
-	labels: ["Cell1", "Cell2", "Cell3", "Cell4"],
-	datasets: [
-		{
-			data: [5, 4.95, 4.5, 4.98],
-			backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
-			hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
-		},
-	],
-};
 
 
 //voltage-current data
-const data2 = {
-	labels: ["Current/Voltage"],
-		datasets: [{
-			label:"Current",
-			barPercentage: 1,
-			barThickness: 100,
-			maxBarThickness: 20,
-			minBarLength: 2,
-			data: [4],
-			backgroundColor: ["#FF6384"]
-},{
-			label:"Voltage",
-			barPercentage: 1,
-			barThickness: 100,
-			maxBarThickness: 20,
-			minBarLength: 2,
-			data: [10],
-			backgroundColor: [ "#36A2EB"]
-}
-]
-
-  };
 
 
+//   function onScan(err, data) {
+//     let data = [];
+//     if (err) {
+//         console.error("Unable to scan the table. Error JSON:", JSON.stringify(err, null, 2));
+//     } else {        
+//         console.log("Scan succeeded.");
+//         data.Items.forEach(function(itemdata) {
+//            console.log("Item :", ++count,JSON.stringify(itemdata));
+//            data.push(itemdata)
+//         });
+
+//         // continue scanning if we have more items
+//         if (typeof data.LastEvaluatedKey != "undefined") {
+//             console.log("Scanning for more...");
+//             params.ExclusiveStartKey = data.LastEvaluatedKey;
+//             docClient.scan(params, onScan);
+//         }
+//         return data;
+//     }
+var params = {
+	TableName: "ESP32_DATA"
+};
+
+var tempData = [];
+var tempLabels = [];
+var voltData = [];
+var currentData =[];
+var voltageData ;
+var vPack =[];
+
+
+function onScan(err, data) {
+	let newData = [];
+	if (err) {
+		console.error("Unable to scan the table. Error JSON:", JSON.stringify(err, null, 2));
+	} else {        
+		console.log("Scan succeeded.");
+		// console.log(data.Items)
+		data.Items.forEach(result=>{
+			newData.push(result)
+		})
+		//console.log(newData.slice(0,10))
+		newData.slice(0,10).map(e=>{
+			tempData.push(e.temperature);
+			tempLabels.push(e.esp32_id.substr(e.esp32_id.length - 8));
+			// currentData = e.chrg_current;
+			// voltageData = e.voltage;
+		});
+			voltData[0] = newData[0].cell_1;
+			voltData[1] = newData[0].cell_2;
+			voltData[2] = newData[0].cell_3;
+			voltData[3] = newData[0].cell_4;
+			currentData[0] = newData[0].chrg_current;
+		console.log(newData[0])
+		console.log(tempLabels)
+		console.log(currentData)
+
+		//sort time
+		const sortedTimeLabel = tempLabels.sort(function(a, b){return a - b});
+		console.log(sortedTimeLabel)
+		//voltage
+		vPack[0] = parseInt(voltData[0])+parseInt(voltData[1])+parseInt(voltData[2])+parseInt(voltData[3]);
+		console.log(vPack)
+	
+		//fault will be a 32-bit number
+
+	}
+};
+
+
+docClient.scan(params, onScan)
 
 function Content() {
+	const data0 = {
+		//labels would have to be esp32_id
+		labels: tempLabels,
+		//dataset here would have to be temperature from those esp32_id
+		datasets: [{
+			label: 'Temperature',
+			data: tempData,
+			fill: false,
+			borderColor: 'rgb(75, 192, 192)',
+			tension: 0.5
+		  }]
+	};
+
+	const data2 = {
+		labels: ["Current/Voltage"],
+			datasets: [{
+				label:"Current",
+				barPercentage: 1,
+				barThickness: 100,
+				maxBarThickness: 20,
+				minBarLength: 2,
+				data: [currentData],
+				backgroundColor: ["#FF6384"]
+	},{
+				label:"Voltage",
+				barPercentage: 1,
+				barThickness: 100,
+				maxBarThickness: 20,
+				minBarLength: 2,
+				data: [vPack],
+				backgroundColor: [ "#36A2EB"]
+	}	
+	]
+	
+	  };
+
+	const dataCellVoltage = {
+		labels: ["Cell1", "Cell2", "Cell3", "Cell4"],
+		datasets: [
+			{
+				data: voltData,
+				backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
+				hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
+			},
+		],
+	};
+	
+	const dataCellCurrent = {
+		labels: ["Cell1", "Cell2", "Cell3", "Cell4"],
+		datasets: [
+			{
+				data: [5, 4.95, 4.5, 4.98],
+				backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
+				hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#98b755"],
+			},
+		],
+	};
+
 	return (
 		<div className={styles.contentcontainer}>
 			<div className={styles.contentwrapper}>
@@ -185,7 +282,6 @@ function Content() {
 						<h3>Reports</h3>
 					</div>
 				</div>
-		
 			</div>
 
 		
