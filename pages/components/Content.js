@@ -73,45 +73,45 @@ const scanTable = async (tableName) => {
 //data for bar chart
 
 	
-const data = {
-	labels: [
-		"January",
-		"February",
-		"March",
-		"April",
-		"May",
-		"June",
-		"July",
-		"August",
-		"September",
-		"October",
-		"November",
-		"December",
-	],
-	datasets: [
-		{
-			label: "Temperature",
-			fill: false,
-			lineTension: 0.1,
-			backgroundColor: "rgba(75,192,192,0.4)",
-			borderColor: "rgba(75,192,192,1)",
-			borderCapStyle: "butt",
-			borderDash: [],
-			borderDashOffset: 0.0,
-			borderJoinStyle: "miter",
-			pointBorderColor: "rgba(75,192,192,1)",
-			pointBackgroundColor: "#fff",
-			pointBorderWidth: 1,
-			pointHoverRadius: 1,
-			pointHoverBackgroundColor: "rgba(75,192,192,1)",
-			pointHoverBorderColor: "rgba(220,220,220,1)",
-			pointHoverBorderWidth: 0,
-			pointRadius: 1,
-			pointHitRadius: 1,
-			data: [65, 59, 80, 81, 56, 55, 40, 57, 40, 48, 59, 62],
-		},
-	],
-};
+// const data = {
+// 	labels: [
+// 		"January",
+// 		"February",
+// 		"March",
+// 		"April",
+// 		"May",
+// 		"June",
+// 		"July",
+// 		"August",
+// 		"September",
+// 		"October",
+// 		"November",
+// 		"December",
+// 	],
+// 	datasets: [
+// 		{
+// 			label: "Temperature",
+// 			fill: false,
+// 			lineTension: 0.1,
+// 			backgroundColor: "rgba(75,192,192,0.4)",
+// 			borderColor: "rgba(75,192,192,1)",
+// 			borderCapStyle: "butt",
+// 			borderDash: [],
+// 			borderDashOffset: 0.0,
+// 			borderJoinStyle: "miter",
+// 			pointBorderColor: "rgba(75,192,192,1)",
+// 			pointBackgroundColor: "#fff",
+// 			pointBorderWidth: 1,
+// 			pointHoverRadius: 1,
+// 			pointHoverBackgroundColor: "rgba(75,192,192,1)",
+// 			pointHoverBorderColor: "rgba(220,220,220,1)",
+// 			pointHoverBorderWidth: 0,
+// 			pointRadius: 1,
+// 			pointHitRadius: 1,
+// 			data: [65, 59, 80, 81, 56, 55, 40, 57, 40, 48, 59, 62],
+// 		},
+// 	],
+// };
 
 
 //calendar function
@@ -126,10 +126,6 @@ function calendar() {
   }
 
 //doughnut chart data set
-
-
-
-
 //voltage-current data
 
 
@@ -158,9 +154,9 @@ var params = {
 
 var tempData = [];
 var tempLabels = [];
+var sortedTimeLabel = [];
 var voltData = [];
 var currentData =[];
-var voltageData ;
 var vPack =[];
 
 
@@ -190,12 +186,38 @@ function onScan(err, data) {
 		console.log(tempLabels)
 		console.log(currentData)
 
-		//sort time
-		const sortedTimeLabel = tempLabels.sort(function(a, b){return a - b});
+
+		let seconds = [];
+		//converting time to seconds 
+		for(let i=0; i<10; i++){
+			var hms = tempLabels[i];   // your input string
+		var a = hms.split(':'); // split it at the colons
+		// minutes are worth 60 seconds. Hours are worth 60 minutes.
+		seconds.push((+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2])); 
+		}
+
+		console.log(seconds);
+
+		let sortedSeconds = [];
+		sortedSeconds= seconds.sort(function(a, b){return a - b});
+		console.log(sortedSeconds);
+
+
+		
+		for(let i=0; i<10; i++){
+			sortedTimeLabel.push(new Date(sortedSeconds[i] * 1000).toISOString().slice(11,19));
+			console.log(sortedSeconds[i])
+		}
 		console.log(sortedTimeLabel)
+
+
+
+		//sort time
+		// const sortedTimeLabel = tempLabels.sort(function(a, b){return a - b});
+		// console.log(sortedTimeLabel)
 		//voltage
 		vPack[0] = parseInt(voltData[0])+parseInt(voltData[1])+parseInt(voltData[2])+parseInt(voltData[3]);
-		console.log(vPack)
+		//console.log(vPack)
 	
 		//fault will be a 32-bit number
 
@@ -208,7 +230,7 @@ docClient.scan(params, onScan)
 function Content() {
 	const data0 = {
 		//labels would have to be esp32_id
-		labels: tempLabels,
+		labels: sortedTimeLabel,
 		//dataset here would have to be temperature from those esp32_id
 		datasets: [{
 			label: 'Temperature',
@@ -269,6 +291,7 @@ function Content() {
 			<div className={styles.contentwrapper}>
 				<div className={styles.tabs}>
 					<div className={styles.categories}>
+						<h1>0</h1>
 						<h3>Batteries Connected</h3>
 					</div>
 				</div>
@@ -306,10 +329,10 @@ function Content() {
 				</div>
 		
 
-				<div className={styles.bar2}>
+				{/* <div className={styles.bar2}>
 					<h2>Temperature History</h2>
 					<Line data={data} width={400} height={400} />
-				</div>
+				</div> */}
 
 			</div>
 		</div>
