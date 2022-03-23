@@ -6,7 +6,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
 }
-
 a {
   color: inherit;
   text-decoration: none;
@@ -22,4 +21,27 @@ body{
   background: rgb(43, 54, 72);
   width: 100%;
   height: 100%;
+}
+
+
+@media only screen and (max-width:600px){
+
+  .navbar-logo{
+     display:none
+  }
+}
+
+.graphs{
+  height:100vh;
+
+  display:flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-wrap: wrap;
+  color:#4f6382
+}
+
+.graphs div{
+  margin:0 80px;
+
 }

@@ -130,13 +130,16 @@ content of dashboard start */
 
 .contentcontainer{
     display: flex;
+    
     flex-wrap: wrap;
     margin-left:200px;
     position: relative;
+    display:flex;
 }
 
 .contentwrapper{
     display: flex;
+    justify-content: start;
     padding: 30px;
     gap:40px;
     position: relative;

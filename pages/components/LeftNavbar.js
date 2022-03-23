@@ -8,7 +8,7 @@ import {
 	faArrowCircleDown
 } from "@fortawesome/free-solid-svg-icons";
 
-function LeftNavbar() {
+function LeftNavbar({open,setOpen,user}) {
 	return (
 		<div className={styles.navcontainer}>
 			<div className={styles.logo}>
@@ -16,7 +16,7 @@ function LeftNavbar() {
                 <img src="https://xdronesecurity.com/img/logos/shield-blanc.png" alt="Logo" height="80" width="80" />
             </div>
 				<h2>BMS</h2>
-				<p>Dashboard</p>
+				<h2>Dashboard</h2>
 			</div>
 			<div className={styles.wrapper}>
 				<ul>
@@ -42,13 +42,20 @@ function LeftNavbar() {
 						/>{" "}
 						<a href="#"> Settings</a>
 					</li>
-					<li>
+					{
+						user ? (<a style={{ width: "18px", cursor: "pointer" }} onClick={()=>{
+							localStorage.removeItem("username");
+							alert("You've been logged out");
+							location.reload()
+						}} >  Logout </a>) : (<li onClick={()=>setOpen(true)} >
 						<FontAwesomeIcon
 							icon={faSignOutAlt}
 							style={{ width: "18px", cursor: "pointer" }}
 						/>{" "}
-						<a href="#">Logout</a>
-					</li>
+						<a href="#">LogIn</a>
+					</li>)
+					}
+					
 				</ul>
 			</div>
 		</div>

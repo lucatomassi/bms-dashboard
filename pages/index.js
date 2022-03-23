@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
@@ -7,6 +8,13 @@ import LeftNavbar from "./components/LeftNavbar";
 
 
 export default function Home() {
+	const [open,setOpen] = useState(false);
+	let user;
+	if(typeof window!=='undefined'){
+
+		 user = localStorage.getItem("username");
+	}
+
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -15,9 +23,11 @@ export default function Home() {
 				<link rel="icon" href="/shield-blanc.ico" />
 			</Head>
 			<div className={styles.container}>
-				<LeftNavbar />
-				<Header />
-				<Content />
+			
+				<LeftNavbar open={open} setOpen={setOpen} user={user}  />
+				<Header user={user}/>
+				<Content open={open} setOpen={setOpen}  user={user}/>
+		
 			</div>
 		</div>
 	);
